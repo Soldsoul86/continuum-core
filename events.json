@@ -1,0 +1,471 @@
+[
+  {
+    "timestamp": 1766473747.7453802,
+    "agent": "cli_writer",
+    "payload": [
+      "first_event"
+    ]
+  },
+  {
+    "timestamp": 1766474161.833602,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_1"
+    ]
+  },
+  {
+    "timestamp": 1766474162.13167,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_2"
+    ]
+  },
+  {
+    "timestamp": 1766474162.422745,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_3"
+    ]
+  },
+  {
+    "timestamp": 1766474162.6428502,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_4"
+    ]
+  },
+  {
+    "timestamp": 1766474162.9264991,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_5"
+    ]
+  },
+  {
+    "timestamp": 1766474163.142456,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_6"
+    ]
+  },
+  {
+    "timestamp": 1766474163.3895638,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_7"
+    ]
+  },
+  {
+    "timestamp": 1766474163.6427798,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_8"
+    ]
+  },
+  {
+    "timestamp": 1766474163.922206,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_9"
+    ]
+  },
+  {
+    "timestamp": 1766474164.1410089,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_10"
+    ]
+  },
+  {
+    "timestamp": 1766474164.419161,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_11"
+    ]
+  },
+  {
+    "timestamp": 1766474164.641514,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_12"
+    ]
+  },
+  {
+    "timestamp": 1766474164.888819,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_13"
+    ]
+  },
+  {
+    "timestamp": 1766474165.173541,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_14"
+    ]
+  },
+  {
+    "timestamp": 1766474165.4413,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_15"
+    ]
+  },
+  {
+    "timestamp": 1766474165.886817,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_16"
+    ]
+  },
+  {
+    "timestamp": 1766474166.188747,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_17"
+    ]
+  },
+  {
+    "timestamp": 1766474166.49113,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_18"
+    ]
+  },
+  {
+    "timestamp": 1766474166.777057,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_19"
+    ]
+  },
+  {
+    "timestamp": 1766474167.036288,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_20"
+    ]
+  },
+  {
+    "timestamp": 1766474167.3197818,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_21"
+    ]
+  },
+  {
+    "timestamp": 1766474167.542644,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_22"
+    ]
+  },
+  {
+    "timestamp": 1766474167.789382,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_23"
+    ]
+  },
+  {
+    "timestamp": 1766474168.0408409,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_24"
+    ]
+  },
+  {
+    "timestamp": 1766474168.292855,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_25"
+    ]
+  },
+  {
+    "timestamp": 1766474168.725384,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_26"
+    ]
+  },
+  {
+    "timestamp": 1766474168.983799,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_27"
+    ]
+  },
+  {
+    "timestamp": 1766474169.429775,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_28"
+    ]
+  },
+  {
+    "timestamp": 1766474169.676506,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_29"
+    ]
+  },
+  {
+    "timestamp": 1766474170.0337012,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_30"
+    ]
+  },
+  {
+    "timestamp": 1766474170.322191,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_31"
+    ]
+  },
+  {
+    "timestamp": 1766474170.631125,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_32"
+    ]
+  },
+  {
+    "timestamp": 1766474170.9257002,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_33"
+    ]
+  },
+  {
+    "timestamp": 1766474171.219282,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_34"
+    ]
+  },
+  {
+    "timestamp": 1766474171.4774761,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_35"
+    ]
+  },
+  {
+    "timestamp": 1766474171.7737558,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_36"
+    ]
+  },
+  {
+    "timestamp": 1766474172.07643,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_37"
+    ]
+  },
+  {
+    "timestamp": 1766474172.376692,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_38"
+    ]
+  },
+  {
+    "timestamp": 1766474172.630958,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_39"
+    ]
+  },
+  {
+    "timestamp": 1766474172.9249039,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_40"
+    ]
+  },
+  {
+    "timestamp": 1766474173.176239,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_41"
+    ]
+  },
+  {
+    "timestamp": 1766474173.426806,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_42"
+    ]
+  },
+  {
+    "timestamp": 1766474173.6788428,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_43"
+    ]
+  },
+  {
+    "timestamp": 1766474173.92961,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_44"
+    ]
+  },
+  {
+    "timestamp": 1766474174.218795,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_45"
+    ]
+  },
+  {
+    "timestamp": 1766474174.438879,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_46"
+    ]
+  },
+  {
+    "timestamp": 1766474174.690763,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_47"
+    ]
+  },
+  {
+    "timestamp": 1766474174.9694982,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_48"
+    ]
+  },
+  {
+    "timestamp": 1766474175.3889768,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_49"
+    ]
+  },
+  {
+    "timestamp": 1766474175.679198,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_50"
+    ]
+  },
+  {
+    "timestamp": 1766474175.979527,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_51"
+    ]
+  },
+  {
+    "timestamp": 1766474176.226764,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_52"
+    ]
+  },
+  {
+    "timestamp": 1766474176.685813,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_53"
+    ]
+  },
+  {
+    "timestamp": 1766474177.0691788,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_54"
+    ]
+  },
+  {
+    "timestamp": 1766474177.330938,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_55"
+    ]
+  },
+  {
+    "timestamp": 1766474177.622826,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_56"
+    ]
+  },
+  {
+    "timestamp": 1766474177.9230652,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_57"
+    ]
+  },
+  {
+    "timestamp": 1766474178.183151,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_58"
+    ]
+  },
+  {
+    "timestamp": 1766474178.469641,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_59"
+    ]
+  },
+  {
+    "timestamp": 1766474178.727374,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_60"
+    ]
+  },
+  {
+    "timestamp": 1766474179.039853,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_61"
+    ]
+  },
+  {
+    "timestamp": 1766474179.491244,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_62"
+    ]
+  },
+  {
+    "timestamp": 1766474179.789115,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_63"
+    ]
+  },
+  {
+    "timestamp": 1766474180.0744362,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_64"
+    ]
+  },
+  {
+    "timestamp": 1766474180.328594,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_65"
+    ]
+  },
+  {
+    "timestamp": 1766474180.583447,
+    "agent": "cli_writer",
+    "payload": [
+      "load_test_66"
+    ]
+  }
+]
