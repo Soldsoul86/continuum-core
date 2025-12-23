@@ -467,5 +467,33 @@
     "payload": [
       "load_test_66"
     ]
+  },
+  {
+    "event_type": "claim",
+    "claim_id": "claim-A",
+    "content": "Tax rate is 18%",
+    "authority": "Govt-2022",
+    "timestamp": "2022-01-01T00:00:00Z"
+  },
+  {
+    "event_type": "claim",
+    "claim_id": "claim-B",
+    "content": "Tax rate is 20%",
+    "authority": "Govt-2024",
+    "timestamp": "2024-01-01T00:00:00Z"
+  },
+  {
+    "event_type": "contradiction_edge",
+    "edge_id": "contr-001",
+    "from_claim": "claim-A",
+    "to_claim": "claim-B",
+    "relation_type": "supersedes",
+    "dimension": "authority",
+    "scope": {
+      "jurisdiction": "India",
+      "domain": "tax"
+    },
+    "introduced_by": "seed",
+    "timestamp": "2024-01-01T00:00:00Z"
   }
 ]
