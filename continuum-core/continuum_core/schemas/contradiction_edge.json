@@ -1,0 +1,14 @@
+{
+  "event_type": "contradiction_edge",
+  "edge_id": "string",
+  "from_claim": "string",
+  "to_claim": "string",
+  "relation_type": "enum",
+  "dimension": "enum",
+  "scope": {
+    "jurisdiction": "string|null",
+    "domain": "string|null"
+  },
+  "introduced_by": "string",
+  "timestamp": "ISO-8601"
+}
