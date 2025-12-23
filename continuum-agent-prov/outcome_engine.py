@@ -1,55 +1,68 @@
-import os
-from datetime import datetime
-from continuum_core.event_store import read_events, append_event
-from event_writer import emit_event
+import json
+import time
+from pathlib import Path
 
-# Ensure all reads/writes happen relative to project root
-PROJECT_ROOT = os.path.dirname(os.path.dirname(__file__))
-os.chdir(PROJECT_ROOT)
+EVENTS_FILE = Path("events.json")
+EVALUATOR_ACTOR = "system:outcome-engine"
 
-ACTOR = "agent:prov-001"
+
+def load_events():
+    if not EVENTS_FILE.exists():
+        return []
+    with open(EVENTS_FILE, "r") as f:
+        return json.load(f)
+
+
+def append_event(event):
+    events = load_events()
+    events.append(event)
+    with open(EVENTS_FILE, "w") as f:
+        json.dump(events, f, indent=2)
 
 
 def evaluate_outcomes():
-    events = read_events()
+    """
+    v0.3-compatible outcome evaluator.
+    Operates on claim_id, not payload / proposal IDs.
+    """
 
-    # Collect all proposal events
-    proposals = [
-        e for e in events
-        if e.get("event_type") == "proposal"
-    ]
+    events = load_events()
 
-    # Collect proposal IDs that already have outcomes
-    evaluated_proposals = {
-        e["payload"].get("proposal_event_id")
-        for e in events
-        if e.get("event_type") == "outcome"
-    }
+    assertions_by_claim = {}
+    outcomes_by_claim = set()
 
-    for proposal in proposals:
-        proposal_id = proposal["event_id"]
+    for e in events:
+        claim_id = e.get("claim_id")
+        role = e.get("role")
 
-        # Idempotency: never evaluate the same proposal twice
-        if proposal_id in evaluated_proposals:
+        if not claim_id:
             continue
 
-        # Deterministic v0.2 rule:
-        # Any proposal without an outcome is marked successful
-        outcome_event = emit_event(
-            actor=ACTOR,
-            event_type="outcome",
-            payload={
-                "proposal_event_id": proposal_id,
-                "status": "success",
-                "reason": "deterministic v0.2 outcome rule",
-                "observed_at": datetime.utcnow().isoformat() + "Z"
-            }
-        )
+        if role == "assertion":
+            assertions_by_claim[claim_id] = e
+
+        elif role == "outcome":
+            outcomes_by_claim.add(claim_id)
+
+    # Emit outcome only for claims that do not yet have one
+    for claim_id, assertion in assertions_by_claim.items():
+        if claim_id in outcomes_by_claim:
+            continue
+
+        outcome_event = {
+            "event_type": "outcome",
+            "actor": EVALUATOR_ACTOR,
+            "claim_id": claim_id,
+            "role": "outcome",
+            "content": "Outcome evaluation pending",
+            "timestamp": time.time()
+        }
 
         append_event(outcome_event)
+
+    print("Outcome evaluation complete.")
 
 
 if __name__ == "__main__":
     evaluate_outcomes()
-    print("Outcome evaluation complete.")
 
