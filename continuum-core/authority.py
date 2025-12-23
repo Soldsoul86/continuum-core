@@ -1,15 +1,20 @@
 from dataclasses import dataclass
-from typing import Optional
+from typing import Optional, List
 
 @dataclass(frozen=True)
 class Authority:
     """
-    Pure data object.
-    Represents a declared source of legitimacy.
-    No validation. No ranking. No logic.
+    Declared source of legitimacy.
+
+    Structure only.
+    No ranking.
+    No validation.
     """
-    authority_id: str          # stable identifier
-    authority_type: str        # law | institution | llm | human | agent | unknown
-    label: str                 # human-readable name
-    parent: Optional[str] = None  # optional hierarchy
+    authority_id: str
+    authority_type: str
+    label: str
+
+    parent: Optional[str] = None
+    valid_from: Optional[str] = None
+    valid_to: Optional[str] = None
 
