@@ -1,44 +1,86 @@
 import { useEffect, useState } from "react";
-import { fetchClaims } from "./api/continuum";
-import ClaimCard from "./components/ClaimCard";
+import AuthoritySelector from "./components/AuthoritySelector";
+import AuthorityCredibility from "./components/AuthorityCredibility";
+import TimeSlider from "./components/TimeSlider";
+import LLMExplainer from "./components/LLMExplainer";
+import {
+  fetchClaims,
+  fetchCredibility,
+  fetchExplanation,
+} from "./api/continuum";
 
-export default function App() {
+function App() {
   const [claims, setClaims] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [credibility, setCredibility] = useState({});
+  const [explanation, setExplanation] = useState("");
+  const [selectedAuthority, setSelectedAuthority] = useState(null);
+  const [day, setDay] = useState(1);
 
   useEffect(() => {
-    fetchClaims()
-      .then(data => {
-        setClaims(data);
-        setLoading(false);
-      })
-      .catch(() => {
-        setLoading(false);
-      });
+    fetchClaims().then(setClaims);
   }, []);
 
+  useEffect(() => {
+    fetchCredibility(day).then(setCredibility);
+  }, [day]);
+
+  useEffect(() => {
+    fetchExplanation({ claims, credibility, asOfDay: day })
+      .then(setExplanation);
+  }, [claims, credibility, day]);
+
+  const authorities = Array.from(
+    new Map(
+      claims
+        .flatMap((c) => c.assertions || [])
+        .map((a) => [
+          a.asserted_by,
+          { authority_id: a.asserted_by, label: a.asserted_by },
+        ])
+    ).values()
+  );
+
+  const visibleClaims = selectedAuthority
+    ? claims.filter((c) =>
+        (c.assertions || []).some(
+          (a) => a.asserted_by === selectedAuthority
+        )
+      )
+    : claims;
+
   return (
-    <div style={{ maxWidth: "800px", margin: "2rem auto", fontFamily: "sans-serif" }}>
-      <h2>Continuum — Claim Topology</h2>
+    <div style={{ padding: "1.5rem", fontFamily: "sans-serif" }}>
+      <h2>Continuum — Authority View</h2>
 
-      {loading && <div>Loading claims…</div>}
+      <TimeSlider min={1} max={5} value={day} onChange={setDay} />
 
-      {!loading && claims.length === 0 && (
-        <div style={{ opacity: 0.7 }}>
-          No claims found.
-        </div>
-      )}
+      <AuthoritySelector
+        authorities={authorities}
+        selectedAuthority={selectedAuthority}
+        onChange={setSelectedAuthority}
+      />
 
-      {!loading && claims.map(c => (
-        <ClaimCard
-          key={c.claim_id}
-          claim={{
-            id: c.claim_id,
-            content: c.content,
-            authority: c.authority
-          }}
-        />
-      ))}
+      <ul>
+        {visibleClaims.map((c) => (
+          <li key={c.claim_id} style={{ marginBottom: "1rem" }}>
+            <strong>{c.subject}</strong> {c.predicate}{" "}
+            <strong>{c.object}</strong>
+            <ul>
+              {(c.assertions || []).map((a, i) => (
+                <li key={i} style={{ fontSize: "0.85em" }}>
+                  asserted by: {a.asserted_by} (day {a.asserted_at_day})
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+
+      <AuthorityCredibility data={credibility} />
+      <LLMExplainer explanation={explanation} />
     </div>
   );
 }
+
+export default App;
+
