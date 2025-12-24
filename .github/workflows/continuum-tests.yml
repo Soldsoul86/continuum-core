@@ -29,5 +29,5 @@ jobs:
       - name: Run regression tests (v0.6+ only)
         working-directory: continuum-agent-prov
         run: |
-          python -m pytest tests -q --ignore=test_v0_4.py
+          python -m pytest tests -q --ignore=./test_v0_4.py
 
