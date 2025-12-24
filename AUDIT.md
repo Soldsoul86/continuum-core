@@ -135,3 +135,43 @@ Any change that violates this section:
 - is not a minor version
 - is a philosophical fork
 
+---
+
+## v0.8 Addendum — Structural Comparison (Paper Freeze Only)
+
+### Status
+
+v0.8 is **paper-frozen**.
+
+No v0.8 code may be written, merged, or deployed until this addendum
+is explicitly unfrozen by a future version declaration.
+
+---
+
+### Purpose
+
+v0.8 extends Continuum with **structural comparison** while preserving
+all prior epistemic invariants.
+
+v0.8 introduces **no truth**, **no ranking**, and **no belief**.
+
+---
+
+### Core Principle (v0.8)
+
+Continuum constrains **meaning**, not **exploration**.
+
+Users may freely compare, group, export, and interpret data.
+Continuum itself must never encode correctness, preference, or trust.
+
+---
+
+### Topics
+
+- Topics may be defined arbitrarily by external actors
+- Topic definition is never inferred by Continuum
+- Every topic must declare provenance:
+
+```json
+"topic_defined_by": "external_identifier"
+
