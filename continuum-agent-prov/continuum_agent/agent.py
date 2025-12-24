@@ -1,17 +1,15 @@
-class Agent:
+from continuum_agent.isolated_agent import IsolatedAgent
+
+
+class Agent(IsolatedAgent):
     """
     Continuum provenance agent.
 
-    This agent:
-    - records inputs and outputs
-    - has no authority
-    - performs no evaluation
-    - performs no comparison
+    Isolated.
+    No authority.
+    No evaluation.
     """
 
-    def __init__(self):
-        pass
-
-    def emit(self, event):
-        return event
+    def __init__(self, agent_id: str):
+        super().__init__(agent_id)
 

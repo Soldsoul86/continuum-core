@@ -76,3 +76,10 @@ These invariants are enforced via:
 Violations MUST fail loudly.
 Silence is a bug.
 
+## Multi-Agent Isolation Invariant
+
+- Agents MUST NOT reference each other directly
+- No shared mutable state between agents
+- Agents MAY interact only via external history
+- Registry MAY store agents but MUST NOT broker logic
+
