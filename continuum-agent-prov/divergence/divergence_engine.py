@@ -1,47 +1,54 @@
-from collections import defaultdict
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any
+from datetime import datetime
 
 
 class DivergenceEngine:
     """
-    Derived-only detector of structural disagreement.
-    No truth, no ranking, no scoring.
+    Derived-only divergence detection.
+
+    - No ranking
+    - No resolution
+    - No write-back
+    - No authority privilege
     """
 
     def __init__(self, claims: List[Dict[str, Any]]):
         self.claims = claims
 
-    def compute(self, as_of_time: Optional[str] = None) -> List[Dict[str, Any]]:
-        grouped = defaultdict(list)
+    def compute(self, as_of_time: str = None) -> List[Dict[str, Any]]:
+        cutoff = None
+        if as_of_time:
+            cutoff = datetime.fromisoformat(as_of_time)
+
+        results = []
 
         for claim in self.claims:
-            s = claim["subject"]
-            p = claim["predicate"]
-            o = claim["object"]
+            active_assertions = []
 
-            for a in claim["assertions"]:
-                if as_of_time and a["asserted_at"] > as_of_time:
+            for a in claim.get("assertions", []):
+                ts = datetime.fromisoformat(
+                    a["asserted_at"].replace("Z", "")
+                )
+
+                if cutoff and ts > cutoff:
                     continue
 
-                grouped[(s, p, o)].append({
-                    "authority": a["asserted_by"],
+                active_assertions.append({
+                    "authority": a["authority"],
                     "value": a["value"],
                     "asserted_at": a["asserted_at"]
                 })
 
-        divergences = []
-
-        for (s, p, o), assertions in grouped.items():
-            values = set(x["value"] for x in assertions)
+            values = set(a["value"] for a in active_assertions)
 
             if len(values) > 1:
-                divergences.append({
-                    "subject": s,
-                    "predicate": p,
-                    "object": o,
+                results.append({
+                    "subject": claim["subject"],
+                    "predicate": claim["predicate"],
+                    "object": claim["object"],
                     "divergent": True,
-                    "assertions": assertions
+                    "assertions": active_assertions
                 })
 
-        return divergences
+        return results
 
