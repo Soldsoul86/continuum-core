@@ -94,3 +94,44 @@ Allowed output:
 ```json
 "divergent": true | false
 
+---
+
+## v0.7 Addendum — Interpreter Hardening (Frozen)
+
+v0.7 introduces **no new epistemic capability**.
+
+The sole change in v0.7 is architectural:
+
+### Canonical Claim Definition
+
+- Claim structure is defined **only** in the claim interpreter
+- Downstream agents may consume claims
+- No downstream component may invent or infer claim structure
+
+### Removed Patterns (Explicitly Forbidden)
+
+- Adapters that reinterpret raw events at runtime
+- Multiple competing claim schemas
+- Claim parsing logic outside the interpreter
+
+### Guaranteed Invariants (Carryover)
+
+All v0.6 invariants remain fully in force:
+
+- No truth resolution
+- No authority ranking
+- No confidence scoring
+- No learning
+- No memory mutation
+- Divergence remains derived-only
+
+v0.7 is therefore a **structural hardening**, not a semantic expansion.
+
+Freeze declaration:
+With this addendum, Continuum v0.7 is declared frozen.
+
+Any change that violates this section:
+- is not a patch
+- is not a minor version
+- is a philosophical fork
+
